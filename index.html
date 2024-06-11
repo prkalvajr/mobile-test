@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Test Page</title>
 </head>
 <body>
@@ -31,10 +32,85 @@
 	</br>
 	
 	<a href="intent:https://www.google.com#Intent;end" target="_blank">Open Browser Intent (android)</a>
+	
+	</br>
+	</br>
+	<a href="safari://google.com" target="_blank">Open Google in Safari</a>
+	<a href="webkit://google.com" target="_blank">Open</a>
 
 	
+	</br>
+	</br>
+	
+	<a href="https://www.google.com" id="myLink">Open JQuery</a>
+	
+	</br>
+	</br>
+	
+	<form action="https://www.google.com" target="_blank">
+    <input type="submit" value="Open in browser form">
+	</form>
+	
+	</br>
+	</br>
+	
+	<a href="http://www.example.com" id="myLink">Open in browser event listener</a>
+	
+	</br>
+	</br>
+	
+	<button onclick="openBrowserLocationReplace()"> location replace</button>
+	
+	</br>
+	</br>
+	
+	<button onclick="openBrowserLocationAssign()"> location assign</button>
+	
+	</br>
+	</br>
+	
+		<button onclick="openBrowserLocationHref()"> location href</button>
+	
+	</br>
+	</br>
+	
+			<button onclick="openSelf()"> location href</button>
+	
+	</br>
+	</br>
+	
+			<button onclick="openNew()"> location href</button>
+	
+	</br>
+	</br>
+	
+			<a href="https://www.google.com" target="_new">a _new</a>
+
+	
+	</br>
+	</br>
+	
+		<a href="https://www.google.com" target="_self">a _self</a>
+		
+	</br>
+	</br>
+	
+		<a href="https://www.google.com" target="_blank">blank</a>
 	
 	<script>
+	
+	$('#myLink').on('click', function(event) {
+    event.preventDefault();
+    window.open($(this).attr('href'), '_blank');
+});	
+		
+	 $(document).on('click', 'a[target="_blank"]', function (ev) {
+      var url;
+      ev.preventDefault();
+      url = $(this).attr('href');
+      window.open(url, '_system');
+    });
+	
         function openBrowser() {
 			var url = 'https://www.google.com';
 			window.open(url, '_system');
@@ -53,6 +129,28 @@
 	var windowSize = "width=" + window.innerWidth + ",height=" + window.innerHeight + ",scrollbars=no";
 	window.open('http://www.google.com', 'popup', windowSize);
 	}
+	
+	function openBrowserLocationReplace() {
+		location.replace('https://www.google.com');
+	}
+	
+	function openBrowserLocationAssign () {
+		location.assign('https://www.google.com');
+	}
+	
+	function openBrowserLocationHref () {
+		location.assign('https://www.google.com');
+	}
+	
+	function openSelf () {
+	window.open('https://www.google.com', '_self');
+	}
+	
+	function openNew () {
+	window.open('http://www.example.com', '_new');
+	}
+	
     </script>
 </body>
 </html>
+
