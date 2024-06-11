@@ -11,10 +11,16 @@
 	
 	<button onclick="openBrowser()"> Open browser </button>
 	</br></br>
-	<a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Open in Browser</a>
+	<a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Open in Browser</a>
 	
-	<a id="btn" href="#" onclick="window.open('https://www.google.com', '_system'); return false;">Continue here</a>
-	<a id="btn2">not in app browser</a>
+	</br>
+	</br>
+	<a href="https://www.google.com" onclick="external_link(this)">My Site</a>
+	
+	</br>
+	</br>
+	
+	<button onclick="openBrowserBlank()"> Open browser </button>
 	
 	<script>
         function openBrowser() {
@@ -22,35 +28,14 @@
 			window.open(url, '_system');
         }
 		
-	webviewCheck();
-    function webviewCheck() {
-        let standalone = window.navigator.standalone,
-            userAgent = window.navigator.userAgent.toLowerCase(),
-            safari = /safari/.test(userAgent),
-            ios = /iphone|ipod|ipad/.test(userAgent);
-
-        if (ios) {
-            if (!standalone && safari) {
-                // Safari
-                console.log("safari browser is being used");
-                document.getElementById("btn").hidden=true;
-            } else if (!standalone && !safari) {
-                // iOS webview
-                console.log("IOS webview is being used");
-                document.getElementById("btn2").hidden=true;
-            };
-        } else {
-            if (userAgent.includes('wv')) {
-                // Android webview
-                console.log("Android webview is being used");
-                document.getElementById("btn2").hidden=true;
-            } else {
-                // Chrome
-                console.log("Other browser is being used (firefox/chrome/edge/etc)");
-                document.getElementById("btn").hidden=true;
-            }
-        };
+	function external_link(anchor) {
+        window.location = anchor.href;
     }
+	
+	function openBrowserBlank() {
+	var url = 'https://www.google.com';
+	window.open(url, '_blank');
+	}
     </script>
 </body>
 </html>
