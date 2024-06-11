@@ -34,7 +34,7 @@
 	
 	</br>
 	</br>
-	<a href="safari://google.com" target="_blank">Open Google in Safari</a>
+	<a href="safari:https://google.com" target="_blank">Open Google in Safari</a>
 	<a href="webkit://google.com" target="_blank">Open</a>
 
 	
@@ -105,9 +105,9 @@
 	<script>
 	
 	$('#myLink').on('click', function(event) {
-    event.preventDefault();
-    window.open($(this).attr('href'), '_blank');
-});	
+		event.preventDefault();
+		window.open($(this).attr('href'), '_blank');
+	});	
 		
 	 $(document).on('click', 'a[target="_blank"]', function (ev) {
       var url;
@@ -116,23 +116,23 @@
       window.open(url, '_system');
     });
 	
-        function openBrowser() {
-			var url = 'https://www.google.com';
-			window.open(url, '_system');
-        }
+    function openBrowser() {
+		var url = 'https://www.google.com';
+		window.open(url, '_system');
+    }
 		
 	function external_link(anchor) {
         window.location = anchor.href;
     }
 	
 	function openBrowserBlank() {
-	var url = 'https://www.google.com';
-	window.open(url, '_blank');
+		var url = 'https://www.google.com';
+		window.open(url, '_blank');
 	}
 	
 	function openBrowserWithSize() {
-	var windowSize = "width=" + window.innerWidth + ",height=" + window.innerHeight + ",scrollbars=no";
-	window.open('http://www.google.com', 'popup', windowSize);
+		var windowSize = "width=" + window.innerWidth + ",height=" + window.innerHeight + ",scrollbars=no";
+		window.open('http://www.google.com', 'popup', windowSize);
 	}
 	
 	function openBrowserLocationReplace() {
@@ -148,19 +148,19 @@
 	}
 	
 	function openSelf () {
-	window.open('https://www.google.com', '_self');
+		window.open('https://www.google.com', '_self');
 	}
 	
 	function openNew () {
-	window.open('http://www.example.com', '_new');
+		window.open('http://www.example.com', '_new');
 	}
 	
 	document.getElementById('myLinktwo').addEventListener('click', function(event) {
-    event.preventDefault();
-    // Attempt to open in external browser
-    window.open(this.href, '_system');
-    window.open(this.href, '_blank');  // Fallback
-});
+		event.preventDefault();
+		// Attempt to open in external browser
+		window.open(this.href, '_system');
+		window.open(this.href, '_blank');  // Fallback
+	});
 	
     </script>
 </body>
