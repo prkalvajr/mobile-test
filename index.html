@@ -101,12 +101,6 @@
 	
 		<a href="http://www.example.com" id="myLinktwo">Open in browser two</a>
 	
-	
-	</br>
-	</br>
-	
-	<button onclick="intentTest()"> Open browser blank </button>
-	
 	<script>
 	
 	$('#myLink').on('click', function(event) {
@@ -165,14 +159,7 @@
 		// Attempt to open in external browser
 		window.open(this.href, '_system');
 		window.open(this.href, '_blank');  // Fallback
-	});
-	
-	function intentTest() {
-		Uri uriUrl = Uri.parse("http://www.google.com/"); 
-		Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);  
-		startActivity(launchBrowser);  
-	}
-	
+	});	
     </script>
 </body>
 </html>
