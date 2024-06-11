@@ -22,6 +22,12 @@
 	
 	<button onclick="openBrowserBlank()"> Open browser </button>
 	
+	</br>
+	</br>
+	
+	<button onclick="openBrowserWithSize()"> Open browser </button>
+	
+	
 	<script>
         function openBrowser() {
 			var url = 'https://www.google.com';
@@ -35,6 +41,11 @@
 	function openBrowserBlank() {
 	var url = 'https://www.google.com';
 	window.open(url, '_blank');
+	}
+	
+	function openBrowserWithSize() {
+	var windowSize = "width=" + window.innerWidth + ",height=" + window.innerHeight + ",scrollbars=no";
+	window.open('http://www.google.com', 'popup', windowSize);
 	}
     </script>
 </body>
